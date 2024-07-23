@@ -3,28 +3,84 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <script defer src="face-api.min.js"></script>
-  <script defer src="script(DETECTION).js"></script>
+  <script defer src="script.js"></script>
+  <title>Face Recognition</title>
   <style>
+    /* Include the CSS here */
+    @font-face {
+    font-family: 'TECHFont';
+    src: url('https://tl122022.github.io/Technology-Website-Template/game_of_squids-webfont.woff') format('woff'),
+    url('https://tl122022.github.io/Technology-Website-Template/game_of_squids-webfont.woff2') format('woff2');
+}
     body {
-      margin: 0;
-      padding: 0;
-      width: 100vw;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(90deg, #000928, #011947);
-    }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(90deg, #000928, #011947);
+  font-family: 'TECHFont', sans-serif;
+  margin: 0;
+}
 
-    canvas {
-      position: absolute;
-    }
+.file-upload {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.file-upload input[type="file"] {
+  display: none;
+}
+
+.file-upload-button {
+  padding: 0.8em 1.2em;
+  color: #010050;
+  cursor: pointer;
+  text-align: center;
+  margin: 1em;
+  outline: none;
+  border: none;
+  background: #fff;
+  border-radius: 4em;
+  font-family: 'TECHFont';
+  text-transform: uppercase;
+  font-weight: 400;
+  transition: all 0.5s;
+}
+
+.file-upload-button:hover {
+  background: #010050;
+  color: #fff;
+}
+
+.image-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-container img {
+  max-width: 100%;
+  height: auto;
+}
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
   </style>
 </head>
 <body>
-  <video id="video" width="720" height="560" autoplay muted></video>
+  <div class="file-upload">
+    <button class="file-upload-button" onclick="document.getElementById('imageUpload').click()">Upload Image</button>
+    <input type="file" id="imageUpload">
+  </div>
+  <div class="image-container" id="imageContainer"></div>
 </body>
 </html>

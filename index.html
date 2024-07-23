@@ -1,86 +1,151 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <script defer src="face-api.min.js"></script>
-  <script defer src="script.js"></script>
-  <title>Face Recognition</title>
-  <style>
-    /* Include the CSS here */
-    @font-face {
-    font-family: 'TECHFont';
-    src: url('https://tl122022.github.io/Technology-Website-Template/game_of_squids-webfont.woff') format('woff'),
-    url('https://tl122022.github.io/Technology-Website-Template/game_of_squids-webfont.woff2') format('woff2');
-}
-    body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background: linear-gradient(90deg, #000928, #011947);
-  font-family: 'TECHFont', sans-serif;
-  margin: 0;
-}
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="java1.css">
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        </head>
 
-.file-upload {
-  position: relative;
-  display: inline-block;
-  margin-bottom: 20px;
-}
-
-.file-upload input[type="file"] {
-  display: none;
-}
-
-.file-upload-button {
-  padding: 0.8em 1.2em;
-  color: #010050;
-  cursor: pointer;
-  text-align: center;
-  margin: 1em;
-  outline: none;
-  border: none;
-  background: #fff;
-  border-radius: 4em;
-  font-family: 'TECHFont';
-  text-transform: uppercase;
-  font-weight: 400;
-  transition: all 0.5s;
-}
-
-.file-upload-button:hover {
-  background: #010050;
-  color: #fff;
-}
-
-.image-container {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.image-container img {
-  max-width: 100%;
-  height: auto;
-}
-
-canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-  </style>
-</head>
 <body>
-  <div class="file-upload">
-    <button class="file-upload-button" onclick="document.getElementById('imageUpload').click()">Upload Image</button>
-    <input type="file" id="imageUpload">
-  </div>
-  <div class="image-container" id="imageContainer"></div>
-</body>
+<!-- Header -->
+        <div class="mainHeader">
+            <nav>
+                <ul data-inViewport="slideTop">
+                    <li><h2>FACESCOPE</h2></li>
+                    <li class="pages" onclick="scrollToPurpose()">Purpose</li>
+                    <li class="pages" onclick="scrollToProcess()">Process</li>
+                    <li class="pages" onclick="scrollToProduct()">Product</li>
+                    <li class="pages" onclick="scrollToContribute()">Contribute</li>
+                </ul>
+            </nav>
+            <div class="header" data-inViewport="slideLeft">
+                <h2>Advancing The World <br> Using Technology</h2>
+                <p>Learn more about what we do to protect the world and <br>what you can do to help!</p>
+                <button onclick="scrollToPurpose()">Find out more</button>
+            </div>  
+        </div>
+        <!-- Header -->
+        <hr>
+        <!-- Purpose Text Section --> 
+        <div class="textSection" id="purpose">
+            <h2 data-inViewport="slideLeft">Our Purpose</h2>
+            <p data-inViewport="slideLeft">
+                To create a safe physical and online environment for everyone. <br> <br>
+                The purpose of making a real-time face detection system is to detect and identify human faces in real-time video or image streams 
+                <br><br> Real-time face detection can be used to enhance security and surveillance systems, such as monitoring for intruders or identifying potential threats in public places.
+                 <br><br> Real-time face detection can enable more natural and intuitive human-computer interaction. For example, it can be used to recognize facial expressions and gestures, or to personalize user experiences based on a person's identity.
+                  <br><br>Real-time face detection can be used in retail settings to analyze customer behavior and optimize store layouts. For example, it can be used to track customer movements and determine which products are attracting the most attention.
+                  <br>Safety of people is very important. This is our goal and purpose.
+            </p>
+        </div>
+        <!-- Purpose Text Section -->
+        <hr>
+        <!-- Process Text Section -->
+        <div class="textSection" id="process">
+            <h2 data-inViewport="slideLeft">Our Process</h2>
+            <div class="boxes">
+                <div class="box" data-inViewport="slideLeft">
+                    <h2>Setting Higher Security</h2>
+                    <p>Higher security ensure safer online platforms</p>
+                    <ion-icon name="open-outline"></ion-icon>
+                </div>
+                <div class="box" data-inViewport="slideLeft">
+                    <h2>Surveilling With AI</h2>
+                    <p>Artificial Face Recognition for Cameras in Public Areas</p>
+                    <ion-icon name="open-outline"></ion-icon>
+                </div>
+                <div class="box" data-inViewport="slideRight">
+                    <h2>Educating Public</h2>
+                    <p>Allow others to be aware of the dangers and stay safe</p>
+                    <ion-icon name="open-outline"></ion-icon>
+                </div>
+
+            </div>
+        </div>
+        <!-- Process Text Section -->
+        <hr>
+        <!-- Product Text Section -->
+        <div class="textSection" id="product">
+            <h2 data-inViewport="slideLeft">Our Product</h2>
+            <div data-inViewport="slideLeft"><button onclick="FacialRecognition()">FACIAL RECOGNITION</button></div>
+            <div data-inViewport="slideLeft"><button onclick="FacialDetection()">FACE DETECTION</button></div>
+            <p data-inViewport="slideLeft">FACE SCOPE</p>
+        </div>
+        <!-- Product Text Section -->
+        <hr>
+        <!-- Contribute Text Section --> 
+        <div class="textSection" id="contribute">
+            <h2 data-inViewport="slideLeft">Contribute</h2>
+            <p data-inViewport="slideLeft">You can donate money to us <a href="#">here</a>.</p>
+            <br> 
+            <p id="scrollTop" onclick="scrollToTop()" data-inViewport="slideTop">Back To Top</p>
+        </div>  
+        <!-- Contribute Text Section -->
+        <!-- Footer -->
+        <div class="textSection footer">
+            <h2 data-inViewport="slideLeft">FACE SCOPE</h2>
+            <div class="links-section">
+                <ul>
+                    <h3 data-inViewport="slideLeft">FACE SCOPE</h3>
+                    <li data-inViewport="slideLeft"><a href="#">Our Team</a></li>
+                    <li data-inViewport="slideLeft"><a href="#">Our Journey</a></li>
+                </ul>
+                <ul>
+                    <h3 data-inViewport="slideLeft">More Info</h3>
+                    <li data-inViewport="slideLeft"><a href="#">Join Us</a></li>
+                    <li data-inViewport="slideLeft"><a href="#">Creators</a></li>
+                </ul>
+            </div>
+            <p data-inViewport="slideLeft">Some Rights Reserved. Codingstar Tutorials 2022.</p>
+        </div>
+        <!-- Footer -->
+        <!-- That's All For the content! -->
+        <script>
+            //Add Scroll 
+            function FacialRecognition(){
+                window.open('http://127.0.0.1:5500/index1.html', '_blank');
+            }
+            function FacialDetection(){
+                window.open('http://127.0.0.1:5500/index2.html', '_blank');
+            }
+            function scrollToPurpose() {
+                var purpose = document.getElementById('purpose');
+                purpose.scrollIntoView();
+            }
+            function scrollToProcess() {
+                var process = document.getElementById('process');
+                process.scrollIntoView();
+            }
+            function scrollToProduct() {
+                var product = document.getElementById('product');
+                product.scrollIntoView();
+            }
+            function scrollToContribute() {
+                var contribute = document.getElementById('contribute');
+                contribute.scrollIntoView();
+            }
+
+            //Add Slide In Effect
+            const inViewport = (entries, observer) => {
+                entries.forEach(entry => {
+                    entry.target.classList.toggle("is-inViewport", entry.isIntersecting);
+                });
+            };
+
+            const Obs = new IntersectionObserver(inViewport);
+            const obsOptions = {};
+
+            //Attach observer to every [data-inViewport] element 
+            const ELs_inViewport = document.querySelectorAll('[data-inviewport]');
+            ELs_inViewport.forEach(EL => {
+                Obs.observe(EL, obsOptions);
+            });
+
+            //Scroll To Top
+            function scrollToTop() {
+                window.scrollTo(0, 0);
+            }
+        </script>
+        </body>
 </html>
